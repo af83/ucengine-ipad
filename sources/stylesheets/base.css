@@ -1,0 +1,100 @@
+/* Resets */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-family: inherit; text-decoration: none; vertical-align: baseline; }
+
+/*:focus { outline: 0; }*/
+.clear { clear: both; }
+.clear-block { display: inline-block; }
+.clear-block:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+/* Hides from IE-mac \*/
+* html .clear-block { height: 1%; }
+.clear-block { display: block; }
+
+html { height: 100%; }
+body { width: 100%; height: 100%; font-family: Helvetica; background: #e3e3e3; -webkit-user-select: none; -webkit-text-size-adjust: none; }
+
+header, nav, aside, section, article { display: block; }
+
+/* page */
+.page { width: 100%; height: 100%; position: relative; display: -webkit-box; -webkit-box-orient: horizontal; background: #424242; }
+
+/* generic header */
+header { height: 39px; border-bottom: 1px solid #838a9a; background: #424242 -webkit-gradient(linear, 0 0, 0 100, from(#f4f5f7), to(#999da9));-webkit-border-top-left-radius: 4px; -webkit-border-top-right-radius: 4px; }
+header h1 { color: #717880; font: bold 14px/39px Helvetica; text-align: center; text-shadow: 0 1px 0 #fff; }
+header ul { position: absolute; top: 28px; right: 10px; z-index: 100000; }
+header ul li { display: inline; }
+header ul.left { display: none; position: absolute; top: 3px; left: 10px; }
+
+body > header { margin: 20px 0 0 0; }
+
+/* button on header */
+header ul li a { color: #fff; text-decoration: none; display: inline-block; padding: 5px 10px 4px 10px; -webkit-border-radius: 5px; background-image: -webkit-gradient(linear, left top, left bottom, from(#7d828c), color-stop(0.5, #303749), color-stop(0.5, #121a2e), to(#121a2e)); border: solid 1px rgba(79, 79, 79, 0.75); font: normal 11px/16px Helvetica; }
+header ul.left li a { position: relative; padding-left: 5px; margin-left: 12px; }
+header ul.left li a:before { content: ' '; position: absolute; left: -10px; top: 3px; display: block; height: 20px; width: 20px; background-image: -webkit-gradient(linear, left top, right bottom, from(#7d828c), color-stop(0.5, #303749), color-stop(0.5, #121a2e), to(#121a2e)); border-left: solid 1px rgba(79, 79, 79, 0.75); border-bottom: solid 1px rgba(79, 79, 79, 0.75); -webkit-transform: rotate(45deg); -webkit-mask-image: -webkit-gradient(linear, left bottom, right top, from(#000000), color-stop(0.5,#000000), color-stop(0.5, transparent), to(transparent)); }
+
+/* content zone */
+#content { -webkit-box-flex: 1; position: relative; height: 100%; }
+#content #chat { position: absolute; height: 589px; padding: 0 10px 0 10px; top: 40px; bottom: 0; left: 0; right: 0; font-size: 15px; background: #fff; border-top: 10px solid #fff; border-bottom: 10px solid #fff; }
+#content #chat #navScroller {}
+#content textarea { position: absolute; top: 650px; width: 674px; height: 50px; border-top: 1px solid #666; border: 1px solid #fff; }
+
+
+/* aside */
+aside { position: relative; width: 342px; height: 100%; margin-left: 1px; }
+aside > section { position: absolute; top: 0; bottom: 0; left: 0; right: 0; font-size: 15px; background: #fff; }
+#listWidgets { padding: 0 0 514px 0; }
+#listWidgets article { position: relative; height: 254px; }
+#listWidgets article video { max-width: 342px; }
+
+
+
+/* Version when I use safari */
+@media all and (max-height: 690px) { 
+	body > header { margin: 0 0 0 0; }
+	header ul { top: 5px; }
+	#content #chat { height: 532px; }
+	#content textarea { top: 593px; }
+	#listWidgets { padding: 0 0 436px 0; }
+	
+	/* specifics styles when keyboard is on */
+	.focus { }
+	.focus #content #chat { margin: 40px 0 0 0; }
+	.focus #listWidgets { padding: 416px 0 0 0; }
+	.focus #content textarea { top: 633px; }
+}
+
+/* Version when I have bookmark app */
+@media all and (min-height: 691px) { 
+	/* specifics styles when keyboard is on */
+	.focus #listWidgets { padding: 416px 0 0 0; }
+	.focus #content #chat { margin: 61px 0 0 0; }
+	.focus #content textarea { top: 711px; }
+	body > header ul,
+	body > header ul.left { top: 25px; }
+	header ul { top: 5px; }
+}
+
+/**/
+@media all and (max-width: 768px) { 
+	body .page, body header { display: none; }
+	body { background: #FFF url('../images/ipad_turn-lanscape.png') center center no-repeat; }
+}
+
+/* Fullscreen */
+.video header ul.left, 
+.sharing header ul.left,
+.whiteboard header ul.left { display: block; }
+
+/* Video fullscreen */
+.video .page #content { display: none; }
+.video aside { width: 100%; }
+.video aside #whiteboard, .video aside #sharing { display: none; } 
+.video aside #video { position: absolute; top: 0; left: 0; z-index: 99999; width: 500px; }
+.video aside #video header { display: none; }
+.video aside #video video { max-width: 1024px; height: 708px; }
+
+
+/* body on loading */
+.loading:before { position: absolute; z-index: 99999; left: 50%; top: 50%; margin: -50px 0 0 -100px; content: ' '; background: url('../images/ajax-loader.png'); background-repeat: no-repeat; background-position: center center; width: 200px; height: 100px; background-color: rgba(10, 10, 10, 0.5); -webkit-border-radius: 20px; border-radius: 20px; background-size: 35px 35px; }
+
+
+
